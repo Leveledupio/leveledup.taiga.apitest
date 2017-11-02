@@ -22,12 +22,11 @@ type Project struct {
 func(p *Project) CreateProject()(*[]byte, error){
 
 	bodySend, err := json.Marshal(p)
-
 	if err != nil{
 		fmt.Printf("Error Marshelling Project JSON")
 	}
 
-	req, err := http.NewRequest("POST", "https://api.taiga.io/api/v1/projects", bytes.NewBuffer(bodySend))
+	req, err := http.NewRequest("POST", baseURL + "/api/v1/projects", bytes.NewBuffer(bodySend))
 	if err != nil{
 		return nil, err
 	}
