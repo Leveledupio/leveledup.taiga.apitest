@@ -12,7 +12,7 @@ DATA=$(jq --null-input \
 USER_AUTH_DETAIL=$( curl -X POST \
   -H "Content-Type: application/json" \
   -d "$DATA" \
-  https://api.taiga.io/api/v1/auth 2>/dev/null )
+  http://localhost:8000/api/v1/auth 2>/dev/null )
 
 AUTH_TOKEN=$( echo ${USER_AUTH_DETAIL} | jq -r '.auth_token' )
 

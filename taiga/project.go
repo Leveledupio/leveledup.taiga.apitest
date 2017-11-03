@@ -1,4 +1,4 @@
-package taigo
+package taiga
 
 import (
 	"fmt"

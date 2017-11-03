@@ -12,7 +12,7 @@ import (
 func main() {
 
 
-/*	t := taigo.Project{
+	t := taigo.Project{
 		Name: "Test2",
 		Description:"words are hard",
 		KanbanAct:false,
@@ -29,8 +29,8 @@ func main() {
 
 
 	fmt.Printf("Project Body: %v", string(*project))
-*/
 
+/*
 	s := taigo.Story{
 		Description:"Story 2",
 		Subject:"Subject for story 2",
@@ -44,4 +44,5 @@ func main() {
 
 
 	fmt.Printf("Story ID: %v Subject%s", s.ID, s.Subject)
+*/
 }
