@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/data":{"guestpath":"/home/vagrant/data","hostpath":"/Users/strongbad/Documents/code/taiga/taiga-vagrant/data","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/strongbad/Documents/code/taiga/taiga-vagrant","disabled":false,"__vagrantfile":true}}}
