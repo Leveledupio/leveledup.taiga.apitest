@@ -4,21 +4,21 @@ package taiga
 type Issue struct {
 }
 
-//CreateIssue - Create a Issue
-func (p *Issue) CreateIssue() {
+//CreateIssue - Create an Issue
+func (i *Issue) CreateIssue() {
 }
 
-//DeleteIssue - remove Issue from taigo
-func (p *Issue) DeleteIssue() {
-
-}
-
-//UpdateIssue - updates a Issue in taigo
-func (p *Issue) UpdateIssue() {
+//DeleteIssue - remove an Issue from taigo
+func (i *Issue) DeleteIssue() {
 
 }
 
-//GetIssue - retrieves a Issue from taigo
-func (p *Issue) GetIssue() {
+//UpdateIssue - updates an Issue in taigo
+func (i *Issue) UpdateIssue() {
+
+}
+
+//GetIssue - retrieves an Issue from taigo
+func (i *Issue) GetIssue() {
 
 }
