@@ -3,13 +3,13 @@ package main
 import (
 	"fmt"
 
-	taigo "github.com/Leveledupio/leveledup.taiga.apitest/taigo"
+	taigo "github.com/Leveledupio/leveledup.taiga.apitest/taiga"
 )
 
 func main() {
 
 	t := taigo.Project{
-		Name:        "Test2",
+		Name:        "ASDF",
 		Description: "words are hard",
 		KanbanAct:   false,
 		IssuesAct:   true,

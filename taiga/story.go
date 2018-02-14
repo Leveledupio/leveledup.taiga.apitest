@@ -1,54 +1,51 @@
 package taiga
 
 import (
-	"fmt"
 	"bytes"
-	"io/ioutil"
 	"encoding/json"
+	"fmt"
+	"io/ioutil"
 	"net/http"
-	)
-
+)
 
 //Story - Creates a story
 //https://taigaio.github.io/taiga-doc/dist/api.html#user-stories-create
 type Story struct {
-
 	ID int `json:"id"`
 	//Required
-	ProjectID int `json:"project"`
-	Subject string `json:"subject"`
+	ProjectID   int    `json:"project"`
+	Subject     string `json:"subject"`
 	Description string `json:"description,omitempty"`
 
 	//optional
-	AssignTo string `json:"assigned_to,omitempty"`
-	BacklogOrder int `json:"backlog_order,omitempty"`
-	BlockedNote string `json:"blocked_note,omitempty"`
-	ClientRequirement bool `json:"client_requirement,omitempty"`
-	Blocked bool `json:"is_blocked,omitempty"`
-	Closed bool `json:"is_closed,omitempty"`
-	KanbanOrder int `json:"kanban_order,omitempty"`
-	MileStoneID int `json:"milestone,omitempty"`
-	Points map[string]int `json:"points,omitempty"`
-	SprintOrder int `json:"sprint_order,omitempty"`
-	Status int `json:"status,omitempty"`
-	Tags []string `json:"tags,omitempty"`
-	TeamRequirement bool `json:"team_requirement,omitempty"`
-	Watchers []int `json:"watchers,omitempty"`
-
+	AssignTo          string         `json:"assigned_to,omitempty"`
+	BacklogOrder      int            `json:"backlog_order,omitempty"`
+	BlockedNote       string         `json:"blocked_note,omitempty"`
+	ClientRequirement bool           `json:"client_requirement,omitempty"`
+	Blocked           bool           `json:"is_blocked,omitempty"`
+	Closed            bool           `json:"is_closed,omitempty"`
+	KanbanOrder       int            `json:"kanban_order,omitempty"`
+	MileStoneID       int            `json:"milestone,omitempty"`
+	Points            map[string]int `json:"points,omitempty"`
+	SprintOrder       int            `json:"sprint_order,omitempty"`
+	Status            int            `json:"status,omitempty"`
+	Tags              []string       `json:"tags,omitempty"`
+	TeamRequirement   bool           `json:"team_requirement,omitempty"`
+	Watchers          []int          `json:"watchers,omitempty"`
 }
 
-func (s *Story) CreateStory() ( error){
+//CreateStory - Creates a taiga story
+func (s *Story) CreateStory() error {
 
 	bodySend, err := json.Marshal(s)
-	if err != nil{
+	if err != nil {
 		fmt.Printf("Error Marshelling Project JSON")
 	}
 
-	req, err := http.NewRequest("POST", baseURL + "/api/v1/userstories", bytes.NewBuffer(bodySend))
-	if err != nil{
+	req, err := http.NewRequest("POST", baseURL+"/api/v1/userstories", bytes.NewBuffer(bodySend))
+	if err != nil {
 		return err
 	}
-
 
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Authorization", fmt.Sprintf("Bearer %s", token))
@@ -63,16 +60,31 @@ func (s *Story) CreateStory() ( error){
 
 	respBody, err := ioutil.ReadAll(resp.Body)
 
-	if err != nil{
+	if err != nil {
 		return err
 	}
 
-	err = json.Unmarshal(respBody,s)
-	if err != nil{
+	err = json.Unmarshal(respBody, s)
+	if err != nil {
 		fmt.Printf("Response body: %v", respBody)
 		return err
 
 	}
 
 	return nil
+}
+
+//DeleteStory - remove Story from taigo
+func (s *Story) DeleteStory() {
+
+}
+
+//UpdateStory - updates a Story in taigo
+func (s *Story) UpdateStory() {
+
+}
+
+//GetStory - retrieves a Story from taigo
+func (s *Story) GetStory() {
+
 }
